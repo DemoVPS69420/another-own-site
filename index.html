@@ -5,61 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hướng Dẫn Tân Thủ - Server Minecraft của Dũng Senpai Discord</title>
     <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --container-bg: white;
+            --text-color: #333;
+            --heading-color: #2c3e50;
+            --subheading-color: #34495e;
+            --accent-color: #e74c3c;
+            --border-color: #3498db;
+            --command-bg: #ecf0f1;
+            --note-bg: #fff3cd;
+            --note-border: #ffc107;
+            --link-color: #3498db;
+            --shadow: rgba(0,0,0,0.1);
+            --footer-color: #7f8c8d;
+        }
+
+        .dark {
+            --bg-color: #181818;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --heading-color: #5da9dd;
+            --subheading-color: #7ab8e8;
+            --accent-color: #ff6b6b;
+            --border-color: #5da9dd;
+            --command-bg: #2a2a2a;
+            --note-bg: #3a3520;
+            --note-border: #ffc107;
+            --link-color: #5da9dd;
+            --shadow: rgba(0,0,0,0.3);
+            --footer-color: #a0a0a0;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: var(--container-bg);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         h1 {
-            color: #2c3e50;
+            color: var(--heading-color);
             text-align: center;
-            border-bottom: 2px solid #3498db;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
         h2 {
-            color: #34495e;
-            border-left: 5px solid #e74c3c;
+            color: var(--subheading-color);
+            border-left: 5px solid var(--accent-color);
             padding-left: 10px;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
         h3 {
-            color: #e74c3c;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
         }
         ul, ol {
             padding-left: 20px;
         }
         .command {
-            background: #ecf0f1;
+            background: var(--command-bg);
             padding: 10px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid var(--border-color);
             margin: 10px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         .important {
-            color: #e74c3c;
+            color: var(--accent-color);
             font-weight: bold;
+            transition: color 0.3s ease;
         }
         .note {
-            background: #fff3cd;
+            background: var(--note-bg);
             padding: 10px;
             border-radius: 5px;
             margin: 10px 0;
-            border-left: 4px solid #ffc107;
+            border-left: 4px solid var(--note-border);
+            transition: background-color 0.3s ease;
         }
         .credit {
             text-align: center;
             font-size: 1.2em;
             color: #555;
             margin-bottom: 20px;
+        }
+        .dark .credit {
+            color: #aaa;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--footer-color);
+            transition: color 0.3s ease;
+        }
+        .feature-credit {
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--footer-color);
+            margin-top: 10px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -75,7 +139,7 @@
 
         <h2>Chương 1: Các lệnh cơ bản</h2>
         <p>Dưới đây là các lệnh cơ bản nhưng khá quan trọng khi mọi người chơi ở server này, các lệnh tối quan trọng mình sẽ <span class="important">in đậm chữ màu đỏ</span> để mọi người dễ nhận biết.</p>
-        
+
         <div class="command">
             <strong><span class="important">/chonclass</span></strong>: đây là một lệnh bắt buộc, phải nhập lệnh này thì mới có thể sử dụng các lệnh khác như /rtp, /stats… Server này có 4 class:<br>
             + <strong>Cung thủ</strong>: tăng dmg mũi tên và tốc chạy<br>
@@ -149,9 +213,23 @@
 
         <p><em>(Hiện tại nội dung vẫn sẽ cập nhật trong thời gian sắp tới)</em></p>
 
-        <footer style="text-align: center; margin-top: 40px; color: #7f8c8d;">
+        <footer>
             <p>Website được xây dựng dựa trên tài liệu gốc. © 2025 - Server Minecraft Dũng Senpai</p>
+            <p class="feature-credit">Auto light/dark mode feature by hieuxyz</p>
         </footer>
     </div>
+
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
 </body>
 </html>
