@@ -98,3 +98,40 @@ code {
         background: #333;
     }
 }
+
+/* Toggle Button Styles */
+#toggle-jp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    line-height: 1.2;
+}
+
+#toggle-jp-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+#toggle-jp-btn:active {
+    transform: scale(0.95);
+}
+
+/* Hide Japanese text when the class is present on body */
+body.hide-jp .japanese {
+    display: none;
+}
