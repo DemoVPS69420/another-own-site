@@ -1,0 +1,162 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+h2 {
+    color: #e67e22;
+    margin-top: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 4px;
+}
+
+.japanese {
+    color: #888;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+    font-family: 'Yu Gothic', 'Meiryo', sans-serif;
+}
+
+/* Style for the Vietnamese line immediately following a Japanese line to group them visually */
+.japanese + p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.note-header {
+    font-weight: bold;
+    color: #c0392b;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#loading {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding: 20px;
+}
+
+code {
+    background: #eee;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    .container {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+    }
+    h1 {
+        color: #fff;
+        border-bottom-color: #333;
+    }
+    h2 {
+        border-bottom-color: #444;
+    }
+    .japanese {
+        color: #aaa;
+    }
+    code {
+        background: #333;
+    }
+}
+
+/* Language Control Styles */
+.lang-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    gap: 5px;
+    border: 1px solid #eee;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.lang-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.lang-btn.active {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+    .lang-control {
+        background-color: rgba(45, 45, 45, 0.95);
+        border-color: #444;
+    }
+    .lang-btn {
+        color: #aaa;
+    }
+    .lang-btn:hover {
+        background-color: #3d3d3d;
+        color: #fff;
+    }
+    .lang-btn.active {
+        background-color: #3498db;
+        color: white;
+    }
+}
+
+/* Language Visibility Logic */
+body.view-vi .japanese, body.view-vi .english { display: none; }
+body.view-jp .vietnamese, body.view-jp .english { display: none; }
+body.view-en .vietnamese, body.view-en .japanese { display: none; }
+/* View All shows everything */
